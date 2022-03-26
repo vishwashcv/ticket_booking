@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Ticket booking</title>
+  </head>
+  <style>
+        body {
+          background-color: #DFF6FF;
+          overflow-x:hidden;
+        }
+        .submitableimg{
+          width: 200px;
+          height: 250px;
+          object-fit: cover;
+          border: inherit;
+          color: transparent;
+        }
+        .bgimg1{
+          object-fit: cover;
+          background-size: 200px;
+          background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCv21R4DqBIqACFpO6Pj6sM9zPPnT2rviYWF4nDcrgtX4LHb2EPGHK_tzm51VgsGh4aDE&usqp=CAU");
+          animation-duration: 1s;
+          animation-name: masihscroll;
+          animation-iteration-count: 10;
+          cursor: pointer;
+
+      
+        }
+        .bgimg2{
+        object-fit: cover;
+        background-image: url("https://pbs.twimg.com/media/E6BHZOIVIAAJnoV.jpg");
+        background-size: 200px;
+        animation-duration: 1s;
+        animation-name: masihscroll;
+        animation-iteration-count: 10;
+        animation-direction: reverse;
+        cursor: pointer;
+
+        }
+        input{
+          margin: 40px;
+        }
+        h4{
+          padding: 10px;
+        }
+        @keyframes masihscroll {
+            0% {transform: translateX(0%);}
+            50% {transform: translateX(-2%);}
+            75%{transform: translateX(1%);}
+            100% {transform: translateX(-0%);}
+        }
+  
+        .nav{
+          background-color:#5D8BF4;
+          padding: 1% 3%;
+        }
+        
+        .nav-right{
+          padding: 25px;
+        }
+        .the-gallery{
+          max-width: 750px;
+          width: 100%;
+        }
+        footer{
+          background-color: #5D8BF4;
+          color: white;
+          text-align: center;
+          padding: 30px;
+        }
+      </style>
+  <body>
+    <div class="nav">
+      <img style="width:200px;" src="./logo.png"/>
+      <div class="nav-right">
+        <a href="./login.html">User &nbsp &nbsp</a>
+        <a href="#">Book tickets &nbsp &nbsp</a>
+        <a href="#">Contact Us &nbsp &nbsp</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    
+    <div>
+      <img class="mySlides" src="./Screenshot (105).png" style="width:100%">
+      <img class="mySlides" src="./Screenshot (110).png" style="width:100%">
+      <img class="mySlides" src="./Screenshot (112).png" style="width:100%">
+    </div>
+    
+   <center>
+     <h4>Movies</h4>
+      <form method="get" action="./date.html"  style="position: relative; display: flex; align-items: center;justify-content: center;">
+          <input type="hidden" id="moviephp" name="movie"/>
+          <input type="submit" class="bgimg1 submitableimg"  id="master"  onclick="reply_click(this.id)"/>
+          
+          <input type="submit" class="bgimg2 submitableimg" id="valimai"  onclick="reply_click(this.id)"/>
+          
+      </form>
+    </center>
+
+    <div style="align-items: center;margin: 100px 0;">
+      <h1 style="text-align: center;margin-bottom: 40px;">THE GALLERY</h1>
+      <div style="display: flex;justify-content: center;width:100%;">
+        <img class="the-gallery" src="./87562_1.jpg">
+        <img class="the-gallery" src="./55541_2.jpg">
+      </div>
+      <div style="display: flex;justify-content: center;">
+        <img class="the-gallery" src="./35264_3.jpg">
+        <img class="the-gallery" src="./27559_4.jpg">
+
+      </div>
+    </div>
+    <footer>
+      <p>copyright© 2021-2022</p>
+    </footer>
+    
+  </body>
+    <script>
+
+      var myIndex = 0;
+      carousel();
+    
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+
+
+       function reply_click(clicked_id)
+        {
+         // alert(clicked_id);
+          document.getElementById('moviephp').value=clicked_id;
+        }
+        function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    
+    var date = getParameterByName('date');
+    
+    var time = getParameterByName('time-1');
+    
+    document.getElementById("datephp").value = date;
+    document.getElementById("timephp").value = time;
+    
+        
+    </script>
+
+</html>
+          
+       

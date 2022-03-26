@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet">
+  <title>Admin</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+  }
+  body {
+    background-color: rgb(134, 158, 230);
+    background-image: url("27366210.jpg");
+    background-repeat: none;
+    background-size: cover; 
+    
+  }
+  form {
+    background-color: rgba(185, 202, 246, 0.5);
+    padding: 100px 0;
+    box-shadow: 5px 5px 10px;
+   }
+  input {
+    padding: 10px 20px;
+    margin: 20px;
+    border: none;
+    box-shadow: 5px 5px 10px ;
+    color: rgb(21, 44, 21);
+    background-color: transparent;
+     }
+  .main {   
+    padding: 100px;
+  }
+  input[type=submit]{
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: blueviolet;
+  box-shadow: 2px 2px rgb(41, 41, 41) ;
+ 
+  }
+ 
+  input[type=email]:focus{
+    color: rgb(24, 34, 43);
+    border: rgba(185, 202, 246, 0.5);
+    outline: rgb(134, 158, 230)
+ 
+  }
+  
+ 
+  input[type=tel]:focus{
+    color: rgb(24, 34, 43);
+    border: rgba(185, 202, 246, 0.5);
+    outline: rgb(134, 158, 230)
+
+  }
+</style>
+<body>
+  <div class="main">
+    <form method="get" action="./process.php">
+    
+      <center> <input type="email" name="email"   id="emailphp" placeholder="email" required></center> 
+     <center>  <input type="tel" name="number" id="numberphp" placeholder="mobile" required></center>  
+        <input type="hidden" name="ticvalue"  id="ticvaluephp" value="" required>
+        <input type="hidden" name="count"  id="countphp" value="" required>
+        <input type="hidden" name="seatno"  id="seatnophp" required>
+        <input type="hidden" name="time"  id="timephp" required>
+        <input type="hidden" name="date"  id="datephp" required>
+        <input type="hidden" name="movie"  id="moviephp" required>
+        <center> <input type="submit" name="Submit" id="submitphp" value="Book"></center>  
+    
+    </form>
+  </div>
+ 
+</body>
+</html>
+<script>
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var date = getParameterByName('date');
+var time = getParameterByName('time');
+var movie = getParameterByName('movie');
+var count=getParameterByName('count');
+var ticvalue = getParameterByName('ticvalue');
+var seatno = getParameterByName('seatno');
+
+document.getElementById("moviephp").value = movie;
+document.getElementById("datephp").value = date;
+document.getElementById("timephp").value = time;
+document.getElementById("ticvaluephp").value = ticvalue;
+document.getElementById("countphp").value = count;
+document.getElementById("seatnophp").value = seatno;
+
+
+
+
+
+					
+
+</script>
+</html>
